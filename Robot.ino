@@ -1,6 +1,6 @@
 //#include <LiquidCrystal.h>
 #define DEBUG
-
+//third
 //IMPORTANT!!!!!!!!!!!!!!!!!!!!
 //Dont't forget to Modify "delay(theta)"  in Turn LEFT and RIGHT function  and the data in "avoidence"
 //#include <Wire.h>
@@ -383,6 +383,7 @@ int free_ram()
   return (int) &v - (__brkval == 0 ? (int) &__heap_start : (int) __brkval);
 }
 
+// mainly avoidence 
 void Mode1(){
   #ifdef DEBUG
               Serial.println("MODE 1");
@@ -407,6 +408,8 @@ void Mode1(){
   
 }
 
+
+//finding the final target
 void Mode2(){
 
         #ifdef DEBUG
@@ -468,6 +471,8 @@ void loop(){
  
 }
 */ 
+
+//Function to calculate the width
 float calEntranceWidth(float distanceA,float distanceB){
 
   float dist =sqrt(pow(distanceA,2)+pow(distanceB,2)-2*distanceA*distanceB*cos(pi/6));
