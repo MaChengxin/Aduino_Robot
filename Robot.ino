@@ -325,7 +325,7 @@ void setup(){
   //tone(8, 38000); 
  // analogWrite(8,125);
  
- //Set up the pin for 
+ //Set up the pin for sensor and motor
   pinMode(trig1,OUTPUT);
   pinMode(echo1,INPUT);
   pinMode(trig2,OUTPUT);
@@ -339,6 +339,8 @@ void setup(){
   pinMode(motorL_A,OUTPUT);
   pinMode(motorL_B,OUTPUT);
   
+  
+  
   //Compass
   //compass = HMC5883L();
   //setupHMC5883L(); 
@@ -350,9 +352,10 @@ void setup(){
 
   
   
-//  mythread.enabled = true;
- // mythread.setInterval(200);
-  //mythread.run();
+
+ // We have two task to do every interrupt
+ // 1.Excecude sensor thread
+ // 2.read Microphone amplitude
   microphoneThread.setInterval(20000);
   //microphoneThread.enabled = true;
   microphoneThread.onRun(&readSound);
@@ -371,6 +374,8 @@ void setup(){
     Mode1();
     Mode2();
 }
+
+//Get Free Ram space
 int free_ram()
 {
   extern int __heap_start, *__brkval;
